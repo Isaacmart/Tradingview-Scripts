@@ -1,0 +1,11 @@
+//@version=4
+study(title="Momentum 2.0", shorttitle="Mom 2.0", resolution="")
+len = input(10, minval=1, title="Length")
+src = input(close, title="Source")
+Time = input(5, minval=1)
+mom = (100-(src[len]*100)/src)
+dev = ((mom-mom[1])/Time)*10
+plot(mom, color=#999915, title="MOM")
+plot(dev, color=color.red, title="DEV")
+//plot(dev, color=color.red, title="DEV")
+band1 = hline(0, "0 line", color=#C0C0C0)
